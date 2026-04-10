@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página não encontrada | DELUSIONAL" />
+  <title>404 | DELUSIONAL</title>
+  <link rel="icon" href="/favicon-delusional.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fbf7ff;
+      --ink: #120d17;
+      --ink-soft: rgba(18, 13, 23, 0.72);
+      --surface: #111113;
+      --accent: #8b3dff;
+      --line: rgba(18, 13, 23, 0.12);
+      --shadow: 14px 14px 0 rgba(139, 61, 255, 0.22);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top center, rgba(139, 61, 255, 0.16), transparent 38%),
+        var(--surface);
+      color: var(--paper);
+      font-family: "Archivo", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity: 0.24;
+      pointer-events: none;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 40px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .logo { display: inline-flex; line-height: 0; }
+    .logo img { width: clamp(148px, 15vw, 196px); height: auto; display: block; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 2px solid var(--paper);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--paper);
+      color: var(--ink);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .shell {
+      border: 2px solid #101010;
+      background: rgba(249, 245, 255, 0.96);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 3vw, 42px);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px 7px;
+      border: 2px solid #101010;
+      background: #101010;
+      color: var(--paper);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(4.2rem, 12vw, 9rem);
+      line-height: 0.88;
+      text-transform: uppercase;
+    }
+
+    p {
+      max-width: 34ch;
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .cta,
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 14px 20px 12px;
+      border: 2px solid #101010;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .cta {
+      background: #101010;
+      color: var(--paper);
+      box-shadow: 9px 9px 0 rgba(139, 61, 255, 0.58);
+    }
+
+    .ghost {
+      background: transparent;
+      color: #101010;
+      box-shadow: 9px 9px 0 rgba(16, 16, 16, 0.1);
+    }
+
+    .cta:hover,
+    .ghost:hover,
+    .cta:focus-visible,
+    .ghost:focus-visible {
+      transform: translate(4px, 4px);
+      box-shadow: 5px 5px 0 rgba(139, 61, 255, 0.5);
+      outline: none;
+    }
+
+    @media (max-width: 767px) {
+      .page { width: min(100% - 20px, 1080px); padding-top: 12px; }
+      .topbar { grid-template-columns: 1fr; }
+      h1 { text-wrap: balance; }
+      .actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="logo" href="/" aria-label="DELUSIONAL">
+        <img src="/delusionallogo.png" alt="DELUSIONAL" />
+      </a>
+      <a class="button" href="/">Voltar para a home</a>
+    </header>
+
+    <section class="shell">
+      <span class="kicker">404</span>
+      <h1>Essa página não existe.</h1>
+      <p>
+        O caminho que você tentou abrir não está disponível. Você pode voltar para a home,
+        ver os pacotes ou ir direto para contato.
+      </p>
+      <div class="actions">
+        <a class="cta" href="/">Ir para a home</a>
+        <a class="ghost" href="/pacotes/">Ver pacotes</a>
+        <a class="ghost" href="/contato/">Contato</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

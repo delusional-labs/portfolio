@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pacotes DELUSIONAL para web development, design e automation AI." />
+  <title>Pacotes | DELUSIONAL</title>
+  <link rel="icon" href="/favicon-delusional.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Barlow+Condensed:wght@700;800&family=Italiana&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --delusion-paper: #fbf7ff;
+      --delusion-ink: #120d17;
+      --delusion-ink-soft: rgba(18, 13, 23, 0.72);
+      --delusion-surface: #111113;
+      --delusion-accent: #8b3dff;
+      --delusion-accent-soft: #c7a9ff;
+      --delusion-material: #ddd5e8;
+      --delusion-line: rgba(18, 13, 23, 0.12);
+      --delusion-shadow: 14px 14px 0 rgba(139, 61, 255, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top center, rgba(139, 61, 255, 0.16), transparent 38%),
+        var(--delusion-surface);
+      color: var(--delusion-paper);
+      font-family: "Archivo", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity: 0.24;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .packages-page {
+      position: relative;
+      z-index: 1;
+      width: min(1360px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 36px;
+    }
+
+    .packages-topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .packages-topbar__logo {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .packages-topbar__logo img {
+      display: block;
+      width: clamp(148px, 15vw, 196px);
+      height: auto;
+    }
+
+    .packages-section-head {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 16px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .packages-section-head h1 {
+      margin: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--delusion-paper);
+    }
+
+    .packages-section-head p {
+      max-width: 42ch;
+      margin: 0;
+      color: rgba(251, 247, 255, 0.72);
+      line-height: 1.6;
+    }
+
+    .packages-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 2px solid var(--delusion-paper);
+      border-radius: 999px;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .packages-pill:hover,
+    .packages-pill:focus-visible {
+      background: var(--delusion-paper);
+      color: var(--delusion-ink);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .packages-card,
+    .packages-faq,
+    .packages-footer {
+      border: 2px solid #101010;
+      background: rgba(249, 245, 255, 0.96);
+      color: var(--delusion-ink);
+      box-shadow: var(--delusion-shadow);
+    }
+
+    .packages-kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px 7px;
+      border: 2px solid #101010;
+      background: #101010;
+      color: var(--delusion-paper);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .packages-title {
+      margin: 18px 0 14px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(4.2rem, 10.5vw, 9rem);
+      line-height: 0.88;
+      text-transform: uppercase;
+    }
+
+    .packages-cta,
+    .packages-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 14px 20px 12px;
+      border: 2px solid #101010;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .packages-cta {
+      background: #101010;
+      color: var(--delusion-paper);
+      box-shadow: 9px 9px 0 rgba(139, 61, 255, 0.58);
+    }
+
+    .packages-ghost {
+      background: transparent;
+      color: #101010;
+      box-shadow: 9px 9px 0 rgba(16, 16, 16, 0.1);
+    }
+
+    .packages-cta:hover,
+    .packages-ghost:hover,
+    .packages-cta:focus-visible,
+    .packages-ghost:focus-visible {
+      transform: translate(4px, 4px);
+      box-shadow: 5px 5px 0 rgba(139, 61, 255, 0.52);
+      outline: none;
+    }
+
+    .packages-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 18px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+
+    .packages-grid::before,
+    .packages-grid::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      color: rgba(139, 61, 255, 0.34);
+      font-family: "Italiana", serif;
+    }
+
+    .packages-grid::before {
+      top: -18px;
+      left: 18px;
+      content: "✦";
+      transform: rotate(-12deg);
+    }
+
+    .packages-grid::after {
+      right: 26px;
+      bottom: -10px;
+      content: "✶";
+      transform: rotate(14deg);
+    }
+
+    .packages-card {
+      position: relative;
+      padding: 26px;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .packages-card:nth-child(1) {
+      transform: rotate(-1.2deg);
+    }
+
+    .packages-card:nth-child(2) {
+      transform: rotate(0.8deg);
+    }
+
+    .packages-card:nth-child(3) {
+      transform: rotate(-1.7deg);
+    }
+
+    .packages-card:nth-child(4) {
+      transform: rotate(1.3deg);
+    }
+
+    .packages-card:hover {
+      transform: translate(-4px, -4px) rotate(0deg);
+      box-shadow: 18px 18px 0 rgba(139, 61, 255, 0.2);
+    }
+
+    .packages-card--featured {
+      background: linear-gradient(180deg, rgba(223, 214, 238, 0.97), rgba(249, 245, 255, 0.97));
+    }
+
+    .packages-badge {
+      position: absolute;
+      top: -14px;
+      right: 18px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border: 2px solid #101010;
+      background: #f3c63d;
+      color: #101010;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transform: rotate(6deg);
+    }
+
+    .packages-card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 2px solid #101010;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-size: 22px;
+      font-weight: 900;
+      background: rgba(139, 61, 255, 0.08);
+      color: var(--delusion-accent);
+    }
+
+    .packages-card h3 {
+      margin: 0 0 8px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.94;
+      text-transform: uppercase;
+    }
+
+    .packages-card p {
+      margin: 0;
+      color: var(--delusion-ink-soft);
+      line-height: 1.7;
+    }
+
+    .packages-price {
+      margin: 18px 0 20px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 8px 12px 7px;
+      border: 1px solid var(--delusion-line);
+      background: rgba(16, 16, 16, 0.04);
+    }
+
+    .packages-price strong {
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(18, 13, 23, 0.68);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .packages-features {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .packages-features li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .packages-features li::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #101010;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .packages-note {
+      margin-top: 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(18, 13, 23, 0.56);
+    }
+
+    .packages-faq {
+      padding: clamp(24px, 3vw, 36px);
+      margin-bottom: 28px;
+    }
+
+    .packages-faq > .packages-kicker {
+      display: flex;
+      width: fit-content;
+      margin: 0 auto 24px;
+    }
+
+    .packages-faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .packages-faq details {
+      padding: 18px;
+      border: 1px solid var(--delusion-line);
+      background: rgba(16, 16, 16, 0.04);
+    }
+
+    .packages-faq summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .packages-faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .packages-faq p {
+      margin: 14px 0 0;
+      color: var(--delusion-ink-soft);
+      line-height: 1.7;
+    }
+
+    .packages-footer {
+      padding: clamp(18px, 2.2vw, 26px);
+    }
+
+    .packages-footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .packages-footer-links {
+      display: contents;
+    }
+
+    .packages-footer__logo {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .packages-footer__logo img {
+      display: block;
+      width: clamp(148px, 15vw, 196px);
+      height: auto;
+    }
+
+    .packages-footer__email,
+    .packages-footer__contact {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 14px 8px;
+      border: 1px solid var(--delusion-line);
+      background: rgba(16, 16, 16, 0.04);
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .packages-footer__contact {
+      border-width: 2px;
+      border-color: #101010;
+      background: #101010;
+      color: var(--delusion-paper);
+      box-shadow: 7px 7px 0 rgba(139, 61, 255, 0.32);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .packages-footer__contact:hover,
+    .packages-footer__contact:focus-visible {
+      transform: translate(3px, 3px);
+      box-shadow: 4px 4px 0 rgba(139, 61, 255, 0.26);
+      outline: none;
+    }
+
+    .packages-footer__email {
+      justify-items: start;
+    }
+
+    @media (max-width: 1080px) {
+      .packages-grid,
+      .packages-faq-grid,
+      .packages-footer-top,
+      .packages-topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .packages-topbar {
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .packages-page {
+        width: min(100% - 20px, 1360px);
+        padding-top: 12px;
+      }
+
+      .packages-title,
+      .packages-card h3,
+      .packages-faq h2 {
+        text-wrap: balance;
+      }
+
+      .packages-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="packages-page">
+    <header class="packages-topbar">
+      <a class="packages-topbar__logo" href="/" aria-label="DELUSIONAL">
+        <img src="/delusionallogo.png" alt="DELUSIONAL" />
+      </a>
+      <a class="packages-pill" href="/contato/">Contato</a>
+    </header>
+
+    <div class="packages-section-head">
+      <span class="packages-kicker">PACOTES</span>
+      <h1>Pacotes</h1>
+      <p>O site sempre entra como base. A partir dele, você escolhe o nível certo de design e automação.</p>
+    </div>
+
+    <section id="plans" class="packages-grid" aria-label="Pacotes disponíveis">
+      <article class="packages-card">
+        <div class="packages-card-icon">01</div>
+        <h3>Site</h3>
+        <p>Para quem precisa colocar uma presença séria no ar com rapidez, clareza e boa estrutura.</p>
+        <div class="packages-price">
+          <strong>Escopo e valor sob medida</strong>
+        </div>
+        <ul class="packages-features">
+          <li>Site institucional ou landing page com estrutura profissional</li>
+          <li>Arquitetura, copy estrutural e hierarquia de conversão</li>
+          <li>Responsivo, performance, publicação e base técnica pronta</li>
+        </ul>
+        <a class="packages-ghost" href="mailto:contato@delusional.studio?subject=Pacote%20Site">Quero esse pacote</a>
+        <div class="packages-note">Base obrigatória para todas as combinações</div>
+      </article>
+
+      <article class="packages-card packages-card--featured">
+        <div class="packages-card-icon">02</div>
+        <h3>Site + Design</h3>
+        <p>Para marcas que precisam subir padrão visual, posicionamento e percepção de valor.</p>
+        <div class="packages-price">
+          <strong>Escopo e valor sob medida</strong>
+        </div>
+        <ul class="packages-features">
+          <li>Site com direção visual mais premium e presença mais forte</li>
+          <li>Tratamento visual de interface, marca e refinamento de percepção</li>
+          <li>Páginas estratégicas com narrativa mais coerente</li>
+        </ul>
+        <a class="packages-ghost" href="mailto:contato@delusional.studio?subject=Pacote%20Site%20%2B%20Design">Quero esse pacote</a>
+        <div class="packages-note">Para quando o site precisa vender melhor pela forma e pela leitura</div>
+      </article>
+
+      <article class="packages-card">
+        <div class="packages-card-icon">03</div>
+        <h3>Site + Automação</h3>
+        <p>Para operações que querem presença forte no front e menos atrito na operação por trás.</p>
+        <div class="packages-price">
+          <strong>Escopo e valor sob medida</strong>
+        </div>
+        <ul class="packages-features">
+          <li>Site estruturado para captar, organizar e preparar fluxos</li>
+          <li>Automação aplicada em atendimento, operação ou aquisição</li>
+          <li>Mapeamento dos fluxos mais importantes da operação</li>
+        </ul>
+        <a class="packages-ghost" href="mailto:contato@delusional.studio?subject=Pacote%20Site%20%2B%20Automacao">Quero esse pacote</a>
+        <div class="packages-note">Para ganhar eficiência sem perder clareza comercial</div>
+      </article>
+
+      <article class="packages-card">
+        <div class="packages-badge">Mais escolhido</div>
+        <div class="packages-card-icon">04</div>
+        <h3>Site + Design + Automação</h3>
+        <p>Para quem quer entrar com presença forte e já conectar isso a uma operação mais inteligente.</p>
+        <div class="packages-price">
+          <strong>Escopo e valor sob medida</strong>
+        </div>
+        <ul class="packages-features">
+          <li>Site, design e automação pensados como um sistema só</li>
+          <li>Presença forte no front com refinamento visual de marca</li>
+          <li>IA aplicada em atendimento, operação ou aquisição</li>
+        </ul>
+        <a class="packages-cta" href="mailto:contato@delusional.studio?subject=Pacote%20Completo">Quero esse pacote</a>
+        <div class="packages-note">A composição mais completa para entrar forte e operar melhor</div>
+      </article>
+    </section>
+
+    <section class="packages-faq" aria-labelledby="packages-faq-title">
+      <span class="packages-kicker">FAQ</span>
+      <div class="packages-faq-grid">
+        <details>
+          <summary>Os preços são fixos?</summary>
+          <p>São pontos de partida. Eles ajudam a acelerar a conversa e evitam proposta genérica já no primeiro contato.</p>
+        </details>
+        <details>
+          <summary>Posso começar por um pacote e expandir depois?</summary>
+          <p>Sim. Essa é a lógica. O pacote entra como base e a evolução vira continuidade do sistema.</p>
+        </details>
+        <details>
+          <summary>Posso contratar só design ou só automação?</summary>
+          <p>Nesta estrutura, não. O site entra sempre como base. A partir dele, você escolhe adicionar design, automação ou os dois.</p>
+        </details>
+        <details>
+          <summary>Como escolho o pacote certo?</summary>
+          <p>Se você já sabe a urgência e o objetivo, a escolha costuma ser rápida. Se ainda estiver nebuloso, a gente direciona na primeira conversa.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="packages-footer">
+      <div class="packages-footer-top">
+        <div class="packages-footer-links">
+          <a class="packages-footer__logo" href="/" aria-label="DELUSIONAL">
+            <img src="/delusionallogo.png" alt="DELUSIONAL" />
+          </a>
+          <a class="packages-footer__email" href="mailto:contato@delusional.studio">contato@delusional.studio</a>
+          <a class="packages-footer__contact" href="/contato/">Contato</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -486,12 +486,12 @@
     .hero-delusional-ghost {
       left: 0;
       bottom: 8px;
-      font-size: 22vw;
+      font-size: 18vw;
       -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.24);
     }
 
     .hero-delusional-title {
-      font-size: 21vw;
+      font-size: 17vw;
     }
 
     .hero-delusional-title__solid {
@@ -1633,20 +1633,46 @@
 
   .landing-end__footer-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(180px, 1fr));
-    gap: 28px;
+    grid-template-columns: minmax(0, 1.45fr) repeat(2, minmax(180px, 0.8fr));
+    gap: clamp(22px, 2.4vw, 34px);
   }
 
   .landing-end__brand {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
   }
 
-  .landing-end__brandmark {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(3rem, 6vw, 5.4rem);
-    line-height: 0.9;
+  .landing-end__footer-logo {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    line-height: 0;
+  }
+
+  .landing-end__footer-logo img {
+    display: block;
+    width: clamp(160px, 16vw, 220px);
+    height: auto;
+  }
+
+  .landing-end__footer-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .landing-end__footer-stack span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 8px 10px 7px;
+    border: 1px solid rgba(16, 16, 16, 0.12);
+    background: rgba(16, 16, 16, 0.04);
+    font-family: 'Archivo', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
@@ -1715,8 +1741,7 @@
     }
 
     .landing-end__title,
-    .landing-end__faq h2,
-    .landing-end__brandmark {
+    .landing-end__faq h2 {
       text-wrap: balance;
     }
 
@@ -1799,8 +1824,15 @@
     <footer class="landing-end__footer">
       <div class="landing-end__footer-grid">
         <div class="landing-end__brand">
-          <span class="landing-end__footer-kicker">DELUSIONAL</span>
+          <a class="landing-end__footer-logo" href="/" aria-label="DELUSIONAL">
+            <img src="/delusionallogo.png" alt="DELUSIONAL" />
+          </a>
           <p>Agência digital independente no Brasil para marcas que querem presença forte, sistemas melhores e crescimento com mais clareza.</p>
+          <div class="landing-end__footer-stack" aria-label="Especialidades">
+            <span>Web Development</span>
+            <span>Design</span>
+            <span>Automation AI</span>
+          </div>
         </div>
 
         <div>
@@ -1809,16 +1841,6 @@
             <a href="mailto:contato@delusional.studio">contato@delusional.studio</a>
             <a href="/contato/">Abrir contato</a>
             <a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a>
-          </div>
-        </div>
-
-        <div>
-          <h4>Especialidades</h4>
-          <div class="landing-end__footer-list">
-            <p>Websites e landing pages</p>
-            <p>Brand e direção visual</p>
-            <p>Automação e IA aplicada</p>
-            <p>Operação digital</p>
           </div>
         </div>
 

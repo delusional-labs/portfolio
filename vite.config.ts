@@ -1,11 +1,7 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
+// Serving static HTML directly - no React needed
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  // No plugins needed for static HTML
+  appType: 'mpa',
 })

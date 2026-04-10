@@ -1,197 +1,210 @@
-import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Zap, Shield, AppWindow } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Plus } from "lucide-react";
 import { Routes, Route } from "react-router-dom";
+import { useRef } from "react";
 import ThreeScene from "./components/ThreeModel";
-import Navbar from "./components/Navbar";
-import ScrambleText from "./components/ScrambleText";
 import Simulation from "./pages/Simulation";
-import StudioDisplay from "./components/StudioDisplay";
-import InteractiveDivider from "./components/InteractiveDivider";
+import sphereImg from "./assets/sphere_offground.png";
 
 function Home() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]); // Adjusted for more slides
+  
+  // Sphere interaction based on scroll
+  const sphereOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const sphereRotate = useTransform(scrollYProgress, [0, 1], [0, 720]);
+  const sphereScale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
+
   return (
-    <main className="relative min-h-screen text-white selection:bg-brand-primary selection:text-white overflow-x-hidden">
-      {/* Texture Background - Top layer */}
-      <div className="grainy-bg" />
+    <main className="relative text-white bg-[#191919] selection:bg-emerald-500 selection:text-white font-sans">
+      {/* Texture Background */}
+      <div className="grainy-bg opacity-20 fixed inset-0 pointer-events-none z-50" />
       
-      {/* Background patterns */}
-      <div className="fixed inset-0 pointer-events-none opacity-20 z-0 text-brand-primary">
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-brand-primary/10 to-transparent blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[40%] h-[60%] bg-gradient-to-tr from-cyan-500/5 to-transparent blur-[100px]" />
+      {/* Background Glow */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-full h-[80%] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)] blur-[100px]" />
       </div>
 
-      <div className="relative z-20">
-        {/* Section 1: Hero */}
-        <section className="relative min-h-screen flex flex-col justify-center px-8 md:px-24 overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <ThreeScene />
-          </div>
-
-          <div className="max-w-6xl w-full ml-auto text-right flex flex-col items-end py-20 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "circOut" }}
-              className="mb-6 mr-4"
-            >
-               <span className="text-[10px] font-bold tracking-[0.8em] text-white/30 uppercase brand-font">Crafting Digital Authority</span>
-            </motion.div>
-
-            <div className="text-[18vw] md:text-[12vw] font-black tracking-tighter leading-[0.75] uppercase mb-16 brand-font flex flex-col items-end">
-              <ScrambleText text="DELU" delay={0} />
-              <ScrambleText text="SIONAL" delay={0.2} className="text-brand-primary" />
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2, delay: 2.2 }}
-              className="flex flex-col items-end gap-16 w-full mr-2 relative z-30"
-            >
-              <p className="text-sm md:text-xl font-bold text-white/40 max-w-2xl tracking-[0.3em] text-right uppercase brand-font">
-                DESIGN QUE DESAFIA A REALIDADE. <br />
-                <span className="text-white">CONSTRUÍMOS PRESENÇA DIGITAL DE ALTO NÍVEL.</span>
-              </p>
-
-              <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="flex items-center gap-6 text-white/10"
-              >
-                <div className="flex flex-col items-end">
-                  <span className="text-[9px] tracking-[0.5em] font-bold uppercase text-right">SCROLL TO EXPERIENCE</span>
-                </div>
-                <ChevronDown size={24} strokeWidth={1} />
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Section 2: Statement/Values */}
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center relative px-8 py-32">
-          <div className="max-w-4xl w-full text-center">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-brand-primary text-[10px] font-bold tracking-[0.5em] uppercase mb-8 block"
-            >
-              Nossa Filosofia
-            </motion.span>
-            
-            <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-24 brand-font flex flex-col items-center">
-              <span className="opacity-20 uppercase">Não entregamos</span>
-              <span className="uppercase">Apenas sites.</span>
-              <div className="h-4" />
-              <span className="opacity-20 uppercase">Entregamos</span>
-              <span className="text-brand-primary italic uppercase">Autoridade digital.</span>
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-              <FeatureCard 
-                icon={<Zap size={24} />} 
-                title="Performance" 
-                desc="Velocidade que converte e posiciona sua marca no topo."
-              />
-              <FeatureCard 
-                icon={<Shield size={24} />} 
-                title="Autoridade" 
-                desc="Design agressivo que comunica liderança em qualquer setor."
-              />
-              <FeatureCard 
-                icon={<AppWindow size={24} />} 
-                title="Experiência" 
-                desc="Interfaces fluidas feitas sob medida para o seu negócio."
-              />
+      {/* LITERAL OFFGROUND HERO */}
+      <section className="paragraph paragraph--type--panel-custom-animated-background paragraph--view-mode--default panel-animated-bg-with-text big-p image-bg-1 no-space-top no-space-bottom text-center-align text-readability-on content-full-width-on text-not-center-align mobileExtraImage font_color_main relative h-screen bg-black overflow-hidden" data-title="Animated BG Image & Text" data-type="panel-animated-bg-with-text" data-paragraph-id="252">
+        <div className="ratio-wrap h-full">
+          <div className="rel h-full">
+            <div className="hero-three-js h-full relative flex items-center justify-center">
+              <div className="hero-logo z-20">
+                <img 
+                  src="https://offground.solutions/themes/legend/images/logo_white-offground.svg" 
+                  alt="Offground Logo"
+                  className="w-[30vw] min-w-[300px] h-auto"
+                />
+              </div>
+              <div className="absolute inset-0 z-0 bg-[#121212]">
+                {/* Fallback for their custom three.js canvas */}
+                <div className="absolute inset-0 opacity-20 bg-[url('https://offground.solutions/sites/default/files/2025-09/background_hero-Offground-min.png')] bg-cover bg-center" />
+              </div>
             </div>
           </div>
-        </section>
-
-
-        {/* Morph Effect Filters */}
-        <svg className="filters">
-          <defs>
-            <filter id="threshold">
-              <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 25 -9" result="goo" />
-              <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-            </filter>
-          </defs>
-        </svg>
-
-        {/* Section 3: The Art of Code (Morph Hero) */}
-        <section className="h-screen w-full flex flex-col justify-center items-center relative overflow-hidden">
-          {/* Studio Display behind text */}
-          <StudioDisplay />
-          
-          <div className="relative z-10 flex flex-col items-center">
-            <div className="morph-container text-center mb-32">
-            <div className="word-rotator">
-              <div className="word">CR<span className="text-brand-primary">E</span>ATE</div>
-              <div className="word">DE<span className="text-brand-primary">S</span>IGN</div>
-              <div className="word">DEV<span className="text-brand-primary">EL</span>OP</div>
-            </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5 }}
-            className="-mt-32"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-7 border border-white/20 text-white font-black rounded-sm transition-all duration-700 text-xs tracking-[0.4em] brand-font uppercase flex items-center gap-4"
-            >
-              Iniciar Projeto <ArrowRight size={16} />
-            </motion.button>
-          </motion.div>
         </div>
+        <div className="bg-overlay background_color_main absolute inset-0 bg-black/15 pointer-events-none"></div>
       </section>
 
-      <InteractiveDivider />
+      {/* LITERAL OFFGROUND CONTENT BELOW HERO */}
+      <div className="offground-replicated-content relative z-20">
+        
+        {/* Animated Sphere (Dynamic) */}
+        <motion.div 
+          style={{ 
+            rotate: sphereRotate, 
+            bottom: "-20rem", 
+            left: "-20rem",
+            scale: sphereScale,
+            opacity: sphereOpacity
+          }}
+          className="fixed z-40 pointer-events-none w-[40rem] md:w-[50rem]"
+        >
+          <img src={sphereImg} alt="" className="w-full h-auto drop-shadow-[0_0_80px_rgba(0,0,0,0.5)]" />
+        </motion.div>
 
-        <Navbar />
+        {/* 1. SERVICES SIDE SCROLL (LITERAL PORT) */}
+        <section className="panel-custom-services-side-scroll">
+          <div ref={containerRef} className="relative h-[400vh]">
+            <div className="sticky top-0 h-screen overflow-hidden bg-[#191919]">
+              
+              <div className="slides-header absolute top-10 left-10 z-50 flex gap-8 text-[10px] uppercase tracking-widest opacity-30">
+                <span>Web Development</span>
+                <span>Design</span>
+                <span>Automation</span>
+                <span>Consulting</span>
+              </div>
 
-        <footer className="relative py-32 md:py-48 px-8 md:px-24 footer-gradient overflow-hidden">
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-32">
-              <div className="col-span-1 md:col-span-2">
-                <div className="text-3xl md:text-5xl font-black brand-font tracking-tighter mb-8 uppercase leading-none flex flex-col items-start text-left">
-                  <span className="opacity-20">VAMOS CRIAR ALGO</span>
-                  <span className="text-brand-primary">LENDÁRIO JUNTOS.</span>
+              <motion.div style={{ x }} className="flex h-full w-[500vw]">
+                {/* SLIDE 0 */}
+                <div className="slide-ele h-screen w-screen shrink-0 flex items-center px-10 md:px-32">
+                  <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 w-full">
+                    <div className="text-wrap">
+                      <h1 className="text-5xl md:text-8xl font-bold uppercase leading-[0.9] tracking-tighter">We specialize in<br/>customer happiness.</h1>
+                      <div className="mt-10 opacity-20"><Plus size={40} /></div>
+                    </div>
+                  </div>
                 </div>
-                <p className="footer-link hover:text-white normal-case tracking-normal text-lg">hello@delusional.studio</p>
-              </div>
-              
-              <div className="flex flex-col gap-6">
-                <span className="text-[10px] tracking-[0.3em] font-black text-white/10 uppercase mb-2">Social</span>
-                <a href="#" className="footer-link">Instagram</a>
-                <a href="#" className="footer-link">Awwwards</a>
-                <a href="#" className="footer-link">Behance</a>
-              </div>
 
-              <div className="flex flex-col gap-6">
-                <span className="text-[10px] tracking-[0.3em] font-black text-white/10 uppercase mb-2">Estúdio</span>
-                <a href="#about" className="footer-link">Sobre</a>
-                <a href="#works" className="footer-link">Projetos</a>
-                <a href="#" className="footer-link">Privacidade</a>
-              </div>
+                {/* SLIDE 1 */}
+                <div className="slide-ele h-screen w-screen shrink-0 flex items-center px-10 md:px-32 bg-[#111111]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 w-full">
+                    <div className="text-wrap">
+                      <h2 className="text-4xl md:text-6xl font-bold uppercase leading-tight">We love to code.</h2>
+                      <p className="text-xl opacity-40 mt-6 max-w-xl">Animated panels, lovely transitions and beautiful designs. But what is good design, without function?</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SLIDE 2 - Experience */}
+                <div className="slide-ele h-screen w-screen shrink-0 flex items-center px-10 md:px-32 bg-[#050505]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 w-full">
+                    <div className="text-wrap">
+                      <h2 className="text-4xl md:text-6xl font-bold uppercase leading-tight">Years of experience backing our expertise.</h2>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SLIDE 3 - Automation */}
+                <div className="slide-ele h-screen w-screen shrink-0 flex items-center px-10 md:px-32 bg-[#0e4134]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 w-full">
+                    <div className="text-wrap">
+                      <h2 className="text-4xl md:text-6xl font-bold uppercase leading-tight">We automate the heavy lifting.</h2>
+                      <p className="text-xl opacity-60 mt-6 max-w-xl">Intelligent background systems that ensure your business scales without friction.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SLIDE 4 - All in one */}
+                <div className="slide-ele h-screen w-screen shrink-0 flex items-center px-10 md:px-32 bg-white text-black">
+                  <div className="flex flex-col items-center justify-center w-full text-center">
+                    <h1 className="text-6xl md:text-[10vw] font-black uppercase leading-[0.8] tracking-tighter">Your all in one agency</h1>
+                  </div>
+                </div>
+              </motion.div>
             </div>
+          </div>
+        </section>
 
-            <div className="flex flex-col md:flex-row justify-between items-end gap-12 pt-12 border-t border-white/5">
-              <div className="flex flex-col gap-2">
-                <div className="text-2xl font-black brand-font tracking-tighter opacity-40">DELUSIONAL.</div>
-                <p className="text-[8px] tracking-[0.5em] font-bold text-white/10 uppercase">Digital Craftsmanship</p>
-              </div>
-              
-              <div className="text-[10px] tracking-[0.2em] font-bold text-white/20 uppercase">
-                © 2024 ALL RIGHTS RESERVED
+        {/* 2. WHO WE ARE (LITERAL PORT) */}
+        <section className="bg-white py-40 px-10 text-black overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <h3 className="text-xs uppercase tracking-[0.3em] font-bold mb-20 opacity-30 text-center">By nurturing</h3>
+            <div className="flex flex-col gap-2 items-center text-5xl md:text-[8vw] font-black uppercase leading-[0.85] tracking-tighter text-center">
+              <span>Pattern breakers,</span>
+              <span>Builders of brands,</span>
+              <span>Strategic designers,</span>
+              <span>Shapers of interfaces,</span>
+              <span>Coders with taste.</span>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. IMAGE & TEXT SECTION (LITERAL) */}
+        <section className="bg-black py-40 px-10">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div className="flex-1 aspect-square rounded-3xl overflow-hidden bg-zinc-900">
+               <img src="https://offground.solutions/sites/default/files/2026-01/bridge_up-Offground.jpg" className="w-full h-full object-cover grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-1000" />
+            </div>
+            <div className="flex-1 flex flex-col gap-10">
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight">Knowledge is built on experience. And we’ve got a ton.</h2>
+              <div className="flex flex-col gap-6 text-xl opacity-40 leading-relaxed font-medium">
+                <p>Outside the current client list, we built our know-how through years of work with industry-leading companies.</p>
+                <p>And with OffGROUND, we aim to bring Apple Inc.-level quality to everybody.</p>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Large background watermark */}
-          <div className="absolute -bottom-20 -right-20 text-[20vw] font-black brand-font tracking-tighter text-white/[0.02] pointer-events-none select-none uppercase">
-            STUDIO
+        {/* 4. FINAL CTA */}
+        <section className="bg-white py-60 px-10 text-black text-center relative">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-7xl md:text-[12vw] font-black uppercase leading-[0.8] tracking-tighter mb-16">
+              We challenge you<br/>to challenge us.
+            </h1>
+            <button className="px-16 py-6 bg-black text-white rounded-full text-2xl font-bold hover:bg-zinc-800 transition-all active:scale-95">
+              GAME ON
+            </button>
+          </div>
+        </section>
+
+        {/* 5. FOOTER (LITERAL PORT) */}
+        <footer className="bg-[#191919] pt-40 pb-20 px-10 border-t border-white/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-20 text-sm opacity-50 font-medium">
+              <div className="flex flex-col gap-6">
+                <span className="text-xl font-bold text-white tracking-tighter">OffGROUND</span>
+                <p className="leading-relaxed">Independent Digital Agency based in Munich, Germany</p>
+              </div>
+              <div className="flex flex-col gap-4">
+                <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" className="hover:text-white transition-colors">Twitter</a>
+                <a href="#" className="hover:text-white transition-colors">Facebook</a>
+              </div>
+              <div className="flex flex-col gap-4">
+                <a href="#" className="hover:text-white transition-colors font-bold text-white mb-2">Contact</a>
+                <a href="mailto:info@offground.solutions" className="hover:text-white transition-colors">info@offground.solutions</a>
+                <a href="tel:+498923044873" className="hover:text-white transition-colors">+49 89 230 448 73</a>
+              </div>
+              <div className="flex flex-col gap-4">
+                <a href="#" className="hover:text-white transition-colors">Imprint</a>
+                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-white transition-colors">Accessibility Statement</a>
+              </div>
+            </div>
+            
+            <div className="mt-40 pt-20 border-t border-white/5 flex justify-between items-center opacity-20 text-[10px] uppercase tracking-widest">
+               <span>© 2026 OffGROUND</span>
+               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center">
+                 <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+               </div>
+            </div>
           </div>
         </footer>
       </div>
@@ -205,21 +218,6 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/simulate" element={<Simulation />} />
     </Routes>
-  );
-}
-
-function FeatureCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="p-8 border border-white/5 bg-white/[0.02] backdrop-blur-sm group hover:border-brand-primary/30 transition-colors duration-500"
-    >
-      <div className="text-brand-primary mb-6 group-hover:scale-110 transition-transform duration-500">{icon}</div>
-      <h3 className="text-lg font-bold tracking-tight mb-4 brand-font uppercase">{title}</h3>
-      <p className="text-sm text-white/40 leading-relaxed">{desc}</p>
-    </motion.div>
   );
 }
 

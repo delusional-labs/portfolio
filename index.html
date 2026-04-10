@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
   
 <!-- Mirrored from offground.solutions/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Apr 2026 03:54:45 GMT -->
@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
 
 <noscript><style>form.antibot * :not(.antibot-message) { display: none !important; }</style>
-</noscript><meta name="description" content="A DELUSIONAL especializa-se em design de alta performance e automaÃ§Ã£o inteligente. Criamos experiÃªncias digitais Ãºnicas e escalÃ¡veis." />
+</noscript><meta name="description" content="A DELUSIONAL especializa-se em design de alta performance e automação inteligente. Criamos experiências digitais únicas e escaláveis." />
 <link rel="shortlink" href="/" />
 <link rel="canonical" href="/" />
 <meta name="robots" content="max-image-preview:large" />
@@ -103,13 +104,24 @@
     <style type="text/css" id="main-colors-variables">
       /* from theme */
       :root {
-        --font_color_main: #ffffff;
-        --font_color_secondary: #dbe6ec;
-        --font_color_opposit: #121212;
+        --delusion-paper: #fbf7ff;
+        --delusion-muted: #dccdf6;
+        --delusion-ink: #120d17;
+        --delusion-surface: #17121f;
+        --delusion-surface-alt: #2b1c3e;
+        --delusion-surface-soft: #46315f;
+        --delusion-accent: #8b3dff;
+        --delusion-accent-soft: #c7a9ff;
+        --delusion-material: #cec3de;
+        --delusion-material-deep: #bcaed2;
 
-        --background_color_main: #191919;
-        --background_color_secondary: #2e0e41; /* Dark Purple */
-        --background_color_third: #5a4a6b;    /* Grayish Purple */
+        --font_color_main: var(--delusion-paper);
+        --font_color_secondary: var(--delusion-muted);
+        --font_color_opposit: var(--delusion-ink);
+
+        --background_color_main: var(--delusion-surface);
+        --background_color_secondary: var(--delusion-surface-alt);
+        --background_color_third: var(--delusion-surface-soft);
         --background_color_four: #ffffff;
         --background_color_five: #000000;
 
@@ -229,6 +241,46 @@
     width: 20px;
   }
 
+  .header-brutal-tag,
+  .header-brutal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 16px 9px;
+    border: 2px solid #101010;
+    background: rgba(249, 245, 255, 0.96);
+    color: #101010;
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 7px 7px 0 #8b3dff;
+  }
+
+  .header-brutal-tag {
+    max-width: max-content;
+  }
+
+  .header-brutal-tag--dark,
+  .header-brutal-button {
+    background: #101010;
+    color: #faf6ff;
+  }
+
+  .header-brutal-button {
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .header-brutal-button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 4px 4px 0 #8b3dff;
+    background: rgba(249, 245, 255, 0.96);
+    color: #101010;
+  }
+
   /* ========== Mobile Responsiveness ========== */
   @media only screen and (max-width: 767px) {
 
@@ -239,6 +291,15 @@
     .header-container h4 {
       font-size: 16px;
       line-height: 20px;
+    }
+
+    .header-brutal-tag,
+    .header-brutal-button {
+      min-height: 38px;
+      padding: 8px 12px 7px;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      box-shadow: 5px 5px 0 #8b3dff;
     }
 
     .header-right {
@@ -259,17 +320,17 @@
   <div class="header-container">
 
           <div class="header-left" style="flex: 1;">
-        <h4><h4>AgÃƒÂªncia digital independente</h4></h4>
+        <h4 class="header-brutal-tag">Agência digital independente</h4>
       </div>
     
           <div class="header-second" style="flex: 1; text-align: center;">
-        <h4>Brasil</h4>
+        <h4 class="header-brutal-tag header-brutal-tag--dark">Brasil</h4>
       </div>
     
 
           <div class="header-fourth" style="flex: 1; text-align: right;">
                             
-          <a href="contact.html" class="cta cta-third" title="Contato">Contato</a>
+          <a href="contact.html" class="cta cta-third header-brutal-button" title="Contato">Contato</a>
               </div>
     
   </div>
@@ -292,6 +353,589 @@
 
 
 
+<style type="text/css">
+  .hero-logo--brutal {
+    position: relative;
+    z-index: 10;
+    width: min(96vw, 1700px);
+    padding: 0 20px 74px;
+    text-align: center;
+  }
+
+  .hero-delusional-lockup {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 22px 20px;
+    transform: translateY(-20px);
+  }
+
+  .hero-delusional-lockup::before,
+  .hero-delusional-lockup::after {
+    content: "";
+    position: absolute;
+    background: #f7f1ff;
+    border: 3px solid #101010;
+    box-shadow: 10px 10px 0 #8b3dff;
+  }
+
+  .hero-delusional-lockup::before {
+    top: -8px;
+    left: 14px;
+    width: clamp(70px, 10vw, 180px);
+    height: 18px;
+  }
+
+  .hero-delusional-lockup::after {
+    display: none;
+  }
+
+  .hero-delusional-ghost {
+    position: absolute;
+    left: 0.4vw;
+    bottom: 1.1vw;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: min(17vw, 17rem);
+    line-height: 0.82;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.24);
+    opacity: 0.55;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .hero-delusional-title {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 0.04em;
+    margin: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: min(16.5vw, 16rem);
+    font-weight: 800;
+    line-height: 0.82;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .hero-delusional-title__solid {
+    display: inline-block;
+    padding: 0.02em 0.08em 0;
+    border: 3px solid #101010;
+    background: rgba(249, 245, 255, 0.98);
+    color: #101010;
+    box-shadow: 0.12em 0.12em 0 #8b3dff;
+    animation: heroBrutalShift 8s steps(2, end) infinite;
+  }
+
+  .hero-delusional-title__outline {
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: 2.5px #f7f1ff;
+    text-shadow: 0.08em 0.08em 0 rgba(139, 61, 255, 0.5);
+    animation: heroBrutalShiftAlt 7s steps(2, end) infinite;
+  }
+
+  @keyframes heroBrutalShift {
+    0%, 100% { transform: translate(0, 0); }
+    8% { transform: translate(0.01em, -0.01em); }
+    10% { transform: translate(-0.015em, 0.01em); }
+    48% { transform: translate(0, 0); }
+    50% { transform: translate(0.02em, 0); }
+    52% { transform: translate(-0.01em, 0.01em); }
+    54% { transform: translate(0, 0); }
+  }
+
+  @keyframes heroBrutalShiftAlt {
+    0%, 100% { transform: translate(0, 0); }
+    18% { transform: translate(-0.01em, 0.008em); }
+    20% { transform: translate(0.012em, -0.008em); }
+    68% { transform: translate(0, 0); }
+    70% { transform: translate(0.015em, 0); }
+    72% { transform: translate(0, 0); }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .hero-logo--brutal {
+      width: 100%;
+      padding: 0 14px 62px;
+    }
+
+    .hero-delusional-lockup {
+      padding: 14px 14px 18px;
+      transform: translateY(-12px);
+    }
+
+    .hero-delusional-lockup::before,
+    .hero-delusional-lockup::after {
+      border-width: 2px;
+      box-shadow: 6px 6px 0 #8b3dff;
+    }
+
+    .hero-delusional-lockup::before {
+      top: -4px;
+      left: 8px;
+      width: 64px;
+      height: 12px;
+    }
+
+    .hero-delusional-ghost {
+      left: 0;
+      bottom: 8px;
+      font-size: 22vw;
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.24);
+    }
+
+    .hero-delusional-title {
+      font-size: 21vw;
+    }
+
+    .hero-delusional-title__solid {
+      border-width: 2px;
+    }
+
+    .hero-delusional-title__outline {
+      -webkit-text-stroke: 1.6px #f7f1ff;
+    }
+
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-delusional-title__solid,
+    .hero-delusional-title__outline {
+      animation: none;
+    }
+  }
+
+  .slides-header-item-text p {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 8px 12px 7px;
+    border: 1px solid rgba(199, 169, 255, 0.22);
+    background: rgba(21, 16, 29, 0.72);
+    color: var(--delusion-paper);
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 rgba(139, 61, 255, 0.35);
+  }
+
+  .slides-header-item-circle {
+    color: var(--delusion-accent-soft);
+  }
+
+  .panel-custom-services-side-scroll .slide-ele .row {
+    align-items: flex-start;
+    gap: clamp(20px, 3.4vw, 56px);
+  }
+
+  .panel-custom-services-side-scroll .slide-ele .text-wrap {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .panel-custom-services-side-scroll .slide-ele .text-wrap-1 {
+    width: min(100%, 46rem);
+  }
+
+  .panel-custom-services-side-scroll .slide-ele .text-wrap-2 {
+    width: min(100%, 34rem);
+    margin-top: clamp(18px, 2.8vw, 42px);
+  }
+
+  .slide-ele .text-wrap-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: clamp(14px, 1.8vw, 24px);
+    width: min(100%, 100%);
+    min-height: clamp(210px, 24vw, 300px);
+    padding: clamp(22px, 2.4vw, 34px);
+    border: 1px solid rgba(199, 169, 255, 0.16);
+    background: linear-gradient(180deg, rgba(20, 15, 29, 0.88), rgba(26, 18, 39, 0.62));
+    box-shadow: 12px 12px 0 rgba(139, 61, 255, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .slide-ele .text-wrap-inner::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: clamp(20px, 2vw, 26px);
+    width: clamp(54px, 8vw, 76px);
+    height: 6px;
+    background: var(--delusion-paper);
+  }
+
+  .slide-ele .text-wrap-inner > p {
+    display: none;
+  }
+
+  .slide-ele .text-wrap-inner h1,
+  .slide-ele .text-wrap-inner h2,
+  .panel-image-text-side-by-side .content-col h3,
+  .panel-hero[data-paragraph-id="262"] .fade-headline:last-of-type,
+  .panel-text[data-paragraph-id="266"] h1 {
+    margin: 0;
+    color: var(--delusion-paper);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .slide-ele .text-wrap-inner h3,
+  .slide-ele .text-wrap-inner h5,
+  .panel-image-text-side-by-side .content-col h3 + p + h3,
+  .panel-image-text-side-by-side .content-col h3 + p + h3 + p + h3 {
+    color: rgba(251, 247, 255, 0.86);
+  }
+
+  .slide-ele .text-wrap-1 .text-wrap-inner h1,
+  .slide-ele .text-wrap-1 .text-wrap-inner h2 {
+    max-width: 12ch;
+    font-size: clamp(2.25rem, 4.5vw, 4.9rem);
+    line-height: 0.92;
+  }
+
+  .slide-ele .text-wrap-2 .text-wrap-inner h2 {
+    max-width: 12ch;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    line-height: 0.96;
+  }
+
+  .slide-ele .text-wrap-1 .text-wrap-inner h3 {
+    margin: 0;
+    max-width: 34ch;
+    font-size: clamp(1rem, 1.25vw, 1.18rem);
+    line-height: 1.42;
+  }
+
+  .slide-ele .text-wrap-inner h5 {
+    display: inline-flex;
+    margin: 0 8px 10px 0;
+    padding: 9px 12px 8px;
+    border: 1px solid rgba(199, 169, 255, 0.22);
+    background: rgba(139, 61, 255, 0.14);
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: var(--delusion-paper);
+  }
+
+  .slide-ele .arrow-icon {
+    margin-top: auto;
+    margin-left: auto;
+    color: var(--delusion-accent-soft);
+    opacity: 0.68;
+    transform: translate(2px, 0);
+  }
+
+  .slide-ele .arrow-icon svg {
+    display: block;
+    width: clamp(40px, 3.6vw, 58px);
+    height: auto;
+  }
+
+  .slide-ele--0 .text-wrap-1 .text-wrap-inner,
+  .slide-ele--4 .text-wrap-1 .text-wrap-inner {
+    min-height: clamp(240px, 26vw, 320px);
+  }
+
+  .slide-ele--1 .text-wrap-2 .text-wrap-inner,
+  .slide-ele--2 .text-wrap-2 .text-wrap-inner,
+  .slide-ele--3 .text-wrap-2 .text-wrap-inner {
+    min-height: auto;
+  }
+
+  .slide-ele--2 .text-wrap-1 {
+    position: relative;
+    width: min(100%, 37rem);
+  }
+
+  .slide-ele--2 .text-wrap-1 .text-wrap-inner {
+    width: calc(100% - clamp(54px, 6vw, 86px));
+    min-height: clamp(220px, 24vw, 290px);
+    padding-right: clamp(28px, 3vw, 42px);
+  }
+
+  .slide-ele--2 .text-wrap-1 .arrow-icon {
+    position: absolute;
+    right: -30px;
+    bottom: 16px;
+    margin: 0;
+  }
+
+  .slide-ele--2 .text-wrap-1 .text-wrap-inner > .arrow-icon {
+    display: none;
+  }
+
+  .slide-ele--2 .text-wrap-1::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    bottom: 16px;
+    width: clamp(40px, 3.6vw, 58px);
+    aspect-ratio: 75 / 82;
+    background: #2f1848;
+    opacity: 0.82;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 75 82'%3E%3Cpath d='M75 67.7708V0H61.9304H48.8609V32.3175V53.369V53.5416H48.7024L48.8609 53.369V32.3175L21.6456 2.8599L3.22855 23.0157L31.4241 53.5416H0V82H48.8609V67.7708L48.8921 82H75V67.7708Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 75 82'%3E%3Cpath d='M75 67.7708V0H61.9304H48.8609V32.3175V53.369V53.5416H48.7024L48.8609 53.369V32.3175L21.6456 2.8599L3.22855 23.0157L31.4241 53.5416H0V82H48.8609V67.7708L48.8921 82H75V67.7708Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .slide-ele--2 .text-wrap-2 .arrow-icon {
+    display: none;
+  }
+
+  .panel-custom-services-side-scroll .slides-header-item:hover .slides-header-item-text p,
+  .panel-custom-services-side-scroll .slides-header-item.active .slides-header-item-text p {
+    background: rgba(37, 24, 54, 0.92);
+    border-color: rgba(199, 169, 255, 0.38);
+    box-shadow: 4px 4px 0 rgba(139, 61, 255, 0.48);
+  }
+
+  .panel-custom-services-side-scroll .slides-header-item:hover .slides-header-item-circle,
+  .panel-custom-services-side-scroll .slides-header-item.active .slides-header-item-circle {
+    color: var(--delusion-accent);
+  }
+
+  .panel-custom-services-side-scroll .circle-animation .label,
+  .panel-custom-services-side-scroll .label-business,
+  .panel-custom-services-side-scroll .label-brand,
+  .panel-custom-services-side-scroll .label-emotions {
+    color: var(--delusion-paper) !important;
+    text-shadow: 0 0 22px rgba(139, 61, 255, 0.18);
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner {
+    border: 1px solid rgba(70, 49, 95, 0.32);
+    background: linear-gradient(180deg, rgba(206, 195, 222, 0.96), rgba(188, 174, 210, 0.92));
+    box-shadow: 12px 12px 0 rgba(166, 148, 201, 0.55);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner::before {
+    background: rgba(251, 247, 255, 0.92);
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner h1,
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner h2,
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner h3,
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner h5 {
+    color: var(--delusion-ink) !important;
+    -webkit-text-fill-color: var(--delusion-ink) !important;
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner h3 {
+    color: rgba(18, 13, 23, 0.84) !important;
+    -webkit-text-fill-color: rgba(18, 13, 23, 0.84) !important;
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--2 .text-wrap-inner h5 {
+    border-color: rgba(95, 70, 127, 0.28);
+    background: rgba(122, 89, 170, 0.1);
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--2 .arrow-icon {
+    color: #2f1848;
+    opacity: 0.8;
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner {
+    border: 1px solid rgba(199, 169, 255, 0.16);
+    background: linear-gradient(180deg, rgba(20, 15, 29, 0.88), rgba(26, 18, 39, 0.62));
+    box-shadow: 12px 12px 0 rgba(139, 61, 255, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner::before {
+    background: var(--delusion-paper);
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner h1,
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner h2,
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner h3,
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner h5 {
+    color: var(--delusion-paper) !important;
+    -webkit-text-fill-color: var(--delusion-paper) !important;
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner h3 {
+    color: rgba(251, 247, 255, 0.86) !important;
+    -webkit-text-fill-color: rgba(251, 247, 255, 0.86) !important;
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--3 .text-wrap-inner h5 {
+    border-color: rgba(199, 169, 255, 0.22);
+    background: rgba(139, 61, 255, 0.14);
+  }
+
+  section[data-paragraph-id="258"] .slide-ele--3 .arrow-icon {
+    color: var(--delusion-accent-soft);
+    opacity: 0.68;
+  }
+
+  .panel-custom-who-we-are .subtitle,
+  .panel-hero[data-paragraph-id="262"] .fade-headline:first-of-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px 7px;
+    border: 2px solid #101010;
+    background: rgba(249, 245, 255, 0.96);
+    color: #101010;
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    box-shadow: 7px 7px 0 rgba(139, 61, 255, 0.55);
+  }
+
+  .panel-custom-who-we-are .word {
+    position: relative;
+    display: inline-block;
+    padding-inline: 0.06em;
+  }
+
+  .panel-custom-who-we-are .word::after {
+    content: "";
+    position: absolute;
+    left: 0.04em;
+    right: 0.04em;
+    bottom: 0.08em;
+    height: 0.16em;
+    background: rgba(139, 61, 255, 0.14);
+    z-index: -1;
+  }
+
+  .panel-image-text-side-by-side .image-wrap {
+    padding: 12px;
+    border: 2px solid #101010;
+    background: rgba(249, 245, 255, 0.96);
+    box-shadow: 12px 12px 0 rgba(139, 61, 255, 0.22);
+  }
+
+  .panel-image-text-side-by-side .content-col {
+    padding: 22px 24px;
+    border-left: 3px solid rgba(139, 61, 255, 0.9);
+    background: rgba(18, 18, 18, 0.04);
+  }
+
+  .panel-text[data-paragraph-id="266"] .custom-btn-wrap .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px 12px;
+    border: 2px solid #101010;
+    background: rgba(249, 245, 255, 0.96);
+    color: #101010;
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 9px 9px 0 rgba(139, 61, 255, 0.6);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .panel-text[data-paragraph-id="266"] .custom-btn-wrap .cta:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 5px 5px 0 rgba(139, 61, 255, 0.6);
+  }
+
+  @media only screen and (max-width: 767px) {
+    .slides-header-item-text p {
+      min-height: 28px;
+      padding: 6px 8px 5px;
+      font-size: 8px;
+      box-shadow: 3px 3px 0 rgba(139, 61, 255, 0.4);
+    }
+
+    .panel-custom-services-side-scroll .slide-ele .row {
+      gap: 16px;
+    }
+
+    .panel-custom-services-side-scroll .slide-ele .text-wrap-1,
+    .panel-custom-services-side-scroll .slide-ele .text-wrap-2 {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .slide-ele--2 .text-wrap-1 .text-wrap-inner {
+      width: 100%;
+    }
+
+    .slide-ele .text-wrap-inner {
+      padding: 16px;
+      min-height: auto;
+      box-shadow: 6px 6px 0 rgba(139, 61, 255, 0.16);
+    }
+
+    .slide-ele .text-wrap-1 .text-wrap-inner h1,
+    .slide-ele .text-wrap-1 .text-wrap-inner h2,
+    .slide-ele .text-wrap-2 .text-wrap-inner h2 {
+      max-width: none;
+      font-size: clamp(1.8rem, 9vw, 3rem);
+    }
+
+    .slide-ele .text-wrap-1 .text-wrap-inner h3 {
+      max-width: none;
+      font-size: 0.96rem;
+    }
+
+    .slide-ele--2 .text-wrap-1 .arrow-icon {
+      position: static;
+      margin-top: auto;
+    }
+
+    .slide-ele--2 .text-wrap-1 .text-wrap-inner > .arrow-icon {
+      display: block;
+    }
+
+    .slide-ele--2 .text-wrap-1::after {
+      display: none;
+    }
+
+    .slide-ele--2 .text-wrap-2 .arrow-icon {
+      display: block;
+    }
+
+    .slide-ele .text-wrap-inner h5 {
+      font-size: 10px;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+
+    .panel-custom-who-we-are .subtitle,
+    .panel-hero[data-paragraph-id="262"] .fade-headline:first-of-type,
+    .panel-text[data-paragraph-id="266"] .custom-btn-wrap .cta {
+      box-shadow: 5px 5px 0 rgba(139, 61, 255, 0.45);
+    }
+
+    .panel-image-text-side-by-side .image-wrap {
+      box-shadow: 7px 7px 0 rgba(139, 61, 255, 0.18);
+    }
+
+    .panel-image-text-side-by-side .content-col {
+      padding: 18px 16px;
+    }
+  }
+</style>
+
 <section  class="paragraph paragraph--type--panel-custom-animated-background paragraph--view-mode--default panel-animated-bg-with-text big-p image-bg-1 no-space-top no-space-bottom text-center-align text-readability-on content-full-width-on text-not-center-align mobileExtraImage font_color_main"  data-title="Animated BG Image & Text" data-type="panel-animated-bg-with-text" data-paragraph-id="252">
   
 
@@ -307,9 +951,14 @@
         </div>
         <div id="overlay-gradient" style="background: radial-gradient(circle at center, rgba(168, 85, 247, 0.2) 0%, transparent 70%);"></div>
 
-        <div class="hero-logo" style="position: relative; z-index: 10; text-align: center; width: 100%;">
-          <h1 style="font-size: 16vw; font-weight: 400; letter-spacing: -0.01em; line-height: 0.8; text-transform: uppercase; font-family: 'Italiana', serif; background: linear-gradient(to bottom, #ffffff 10%, #a855f7 50%, #2e1065 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; display: inline-block; white-space: nowrap; filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.6));">DELUSIONAL</h1>
-
+        <div class="hero-logo hero-logo--brutal">
+          <div class="hero-delusional-lockup" aria-label="Delusional">
+            <span class="hero-delusional-ghost" aria-hidden="true">DELUSIONAL</span>
+            <h1 class="hero-delusional-title">
+              <span class="hero-delusional-title__solid">DELU</span>
+              <span class="hero-delusional-title__outline">SIONAL</span>
+            </h1>
+          </div>
         </div>
 
         <div class="tap-indicator mobile">
@@ -351,7 +1000,7 @@
             </div>
             <div class="slides-header-item-text">
               <p>
-                Web Development
+                Web
               </p>
             </div>
           </div>
@@ -371,7 +1020,7 @@
             </div>
             <div class="slides-header-item-text">
               <p>
-                Automation
+                Automação
               </p>
             </div>
           </div>
@@ -386,7 +1035,7 @@
     <div class="row">
             <div class="text-wrap text-wrap-1">
             <div class="text-wrap-inner">
-                <h1>Somos especialistas na&nbsp;<br>felicidade do cliente.</h1>
+                <h1>Sites fortes.<br>Operações mais inteligentes.</h1>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -398,7 +1047,7 @@
     
             <div class="text-wrap text-wrap-2">
             <div class="text-wrap-inner">
-                <h2>EstratÃ©gias sob medida, â€¨Resultados garantidos</h2><p>&nbsp;</p><h3>Ã‰ por isso que oferecemos um conjunto completo de serviÃ§os, cada um adaptado para abordar seus desafios e objetivos Ãºnicos. Nossa equipe combina criatividade com dados para construir estratÃ©gias que entregam resultados.</h3>
+                <h2>Menos ruído. Mais impacto.</h2><p>&nbsp;</p><h3>Design, web e automação pensados para fazer sua marca parecer maior, vender melhor e operar com mais clareza.</h3>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -429,7 +1078,7 @@
     <div class="row">
             <div class="text-wrap text-wrap-1">
             <div class="text-wrap-inner">
-                <h2>NÃ³s amamos programar.&nbsp;</h2><p>&nbsp;</p><h3>PainÃ©is animados, transiÃ§Ãµes suaves e designs belÃ­ssimos. Mas o que Ã© um bom design sem funcionalidade?</h3>
+                <h2>Web que impressiona e performa.</h2><p>&nbsp;</p><h3>Estética forte na frente. Estrutura sólida por trás. Tudo feito para segurar atenção e gerar ação.</h3>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -441,7 +1090,7 @@
     
             <div class="text-wrap text-wrap-2">
             <div class="text-wrap-inner">
-                <h2>Nosso foco</h2><p>&nbsp;</p><h5>Websites corporativos Ãºnicos</h5><h5>CMS open source inteligente.</h5><h5>SoluÃ§Ãµes de E-commerceâ€‹</h5><h5>Desenvolvimento de Web apps</h5>
+                <h2>Web</h2><p>&nbsp;</p><h5>Landing pages de alta conversão</h5><h5>Sites institucionais com presença</h5><h5>E-commerce com experiência clara</h5><h5>Web apps sob medida</h5>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -472,7 +1121,7 @@
     <div class="row">
             <div class="text-wrap text-wrap-1">
             <div class="text-wrap-inner">
-                <h2>Anos de experiÃªncia trabalhando com marcas que vocÃª conhece comprovam nossa expertise.</h2>
+                <h2>Design que posiciona antes mesmo da primeira conversa.</h2>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -484,7 +1133,7 @@
     
             <div class="text-wrap text-wrap-2">
             <div class="text-wrap-inner">
-                <h2>Nossos serviÃ§os&nbsp;</h2><p>&nbsp;</p><h5>Design UX/UIâ€‹</h5><h5>Identidade e estratÃ©gia de marca</h5><h5>ProduÃ§Ã£o de fotografia e vÃ­deo</h5><h5>CGI e motion designâ€‹</h5><h5>Design e construÃ§Ã£o para feiras e eventosâ€‹</h5>
+                <h2>Design</h2><p>&nbsp;</p><h5>UX/UI para experiências premium</h5><h5>Identidade visual com direção</h5><h5>Foto e vídeo com linguagem de marca</h5><h5>CGI e motion para impacto</h5><h5>Materiais para eventos e ativações</h5>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -546,7 +1195,7 @@
     <div class="row">
             <div class="text-wrap text-wrap-1">
             <div class="text-wrap-inner">
-                <h2>Automatizamos o trabalho pesado com sistemas de background inteligentes. De fluxos de dados a suporte por IA, garantimos que seu negÃ³cio escale sem atritos.</h2>
+                <h2>Automação para crescer sem aumentar o caos.</h2>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -558,7 +1207,7 @@
     
             <div class="text-wrap text-wrap-2">
             <div class="text-wrap-inner">
-                <h2>Nossa expertise</h2><p>&nbsp;</p><h5>AutomaÃ§Ã£o de processos com Make/n8nâ€‹</h5><h5>Assistentes de IA e chatbotsâ€‹</h5><h5>Sistemas telefÃ´nicos por IAâ€‹</h5><h5>AutomaÃ§Ã£o de redes sociaisâ€‹</h5><h5>Pesquisa de leads e prospecÃ§Ã£o ativa</h5><h5>CRM e sincronizaÃ§Ã£o de mÃºltiplos sistemas</h5>
+                <h2>Automação</h2><p>&nbsp;</p><h5>Fluxos com Make e n8n</h5><h5>IA para atendimento e operação</h5><h5>Telefonia inteligente</h5><h5>Automação de social e prospecção</h5><h5>CRM e integrações entre sistemas</h5><h5>Chatbots e agentes úteis</h5>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -619,7 +1268,7 @@
     <div class="row">
             <div class="text-wrap text-wrap-1">
             <div class="text-wrap-inner">
-                <h1>Sua agÃªncia all-in-one</h1><p>&nbsp;</p><h3>Guiamos sua transformaÃ§Ã£o digital completa. Da estratÃ©gia e branding a automaÃ§Ãµes complexas, somos seu ponto Ãºnico de contato do conceito Ã  execuÃ§Ã£o.</h3>
+                <h1>Tudo precisa conversar.</h1><p>&nbsp;</p><h3>Marca, site e automação funcionando no mesmo ritmo, sem quebra entre estratégia e execução.</h3>
 
                 <div class="arrow-icon">
                     <svg width="75" height="82" viewBox="0 0 75 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -641,9 +1290,9 @@
 
           <div class="circle-animation">
         <div class="circle-animation--wrapper">
-          <div class="label h3 label-business">NegÃ³cios</div>
+          <div class="label h3 label-business">Negócios</div>
           <div class="label h3 label-brand">Marca</div>
-          <div class="label h3 label-emotions">EmoÃ§Ãµes</div>
+          <div class="label h3 label-emotions">Emoções</div>
         </div>
       </div>
 
@@ -658,250 +1307,435 @@
 
 
 
-<section  class="paragraph paragraph--type--panel-custom-header paragraph--view-mode--default panel-custom-header version-" data-title="Custom Header" data-type="header" data-paragraph-id="263">
-  
-
-  
 <style type="text/css">
-  header.header-main {
-    z-index: 100;
-    width: 100%;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-    background-color: transparent;
+  .landing-end {
+    position: relative;
+    padding: clamp(80px, 10vw, 140px) 24px clamp(42px, 6vw, 80px);
+    background:
+      radial-gradient(circle at top center, rgba(139, 61, 255, 0.16), transparent 44%),
+      #111113;
+    color: #f7f1ff;
+    overflow: hidden;
+  }
+
+  .landing-end::before {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 26px 26px;
+    opacity: 0.24;
+    pointer-events: none;
   }
 
-  .header-container {
+  .landing-end__shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1360px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
   }
 
-  .header-fourth {
-    a {
-      margin: 0!important;
-    }
+  .landing-end__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 38px;
   }
-  
-  .header-third {
-    display: flex;
-    justify-content: space-between;
+
+  .landing-end__panel,
+  .landing-end__faq,
+  .landing-end__footer {
+    border: 2px solid #101010;
+    background: rgba(249, 245, 255, 0.95);
+    color: #101010;
+    box-shadow: 14px 14px 0 rgba(139, 61, 255, 0.24);
+  }
+
+  .landing-end__panel {
+    padding: clamp(28px, 3vw, 42px);
+  }
+
+  .landing-end__eyebrow,
+  .landing-end__faq-title,
+  .landing-end__footer-kicker {
+    display: inline-flex;
     align-items: center;
+    padding: 8px 12px 7px;
+    border: 2px solid #101010;
+    background: #101010;
+    color: #faf6ff;
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .landing-end__title {
+    margin: 20px 0 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3.8rem, 7vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .landing-end__copy {
+    max-width: 56ch;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(16, 16, 16, 0.82);
+  }
+
+  .landing-end__actions {
+    display: flex;
+    flex-wrap: wrap;
     gap: 14px;
+    margin-top: 28px;
   }
 
-  .header-third svg {
-    fill: white;
-    width: 20px;
+  .landing-end__cta,
+  .landing-end__cta--secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 14px 20px 12px;
+    border: 2px solid #101010;
+    text-decoration: none;
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, box-shadow 180ms ease;
   }
 
-  /* ========== Mobile Responsiveness ========== */
-  @media only screen and (max-width: 767px) {
+  .landing-end__cta {
+    background: #101010;
+    color: #faf6ff;
+    box-shadow: 9px 9px 0 rgba(139, 61, 255, 0.6);
+  }
 
-    .header-container {
-      gap: 1rem;
+  .landing-end__cta--secondary {
+    background: transparent;
+    color: #101010;
+    box-shadow: 9px 9px 0 rgba(16, 16, 16, 0.1);
+  }
+
+  .landing-end__cta:hover,
+  .landing-end__cta--secondary:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 5px 5px 0 rgba(139, 61, 255, 0.55);
+  }
+
+  .landing-end__aside {
+    padding: clamp(22px, 2.6vw, 32px);
+    background: rgba(16, 16, 16, 0.96);
+    color: #faf6ff;
+  }
+
+  .landing-end__aside h3 {
+    margin: 18px 0 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .landing-end__aside p {
+    margin: 0 0 18px;
+    line-height: 1.7;
+    color: rgba(250, 246, 255, 0.78);
+  }
+
+  .landing-end__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .landing-end__chips span {
+    display: inline-flex;
+    padding: 8px 10px 7px;
+    border: 1px solid rgba(250, 246, 255, 0.22);
+    background: rgba(139, 61, 255, 0.16);
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .landing-end__faq {
+    padding: clamp(26px, 3vw, 36px);
+    margin-bottom: 34px;
+  }
+
+  .landing-end__faq-title {
+    background: rgba(249, 245, 255, 0.95);
+    color: #101010;
+  }
+
+  .landing-end__faq h2 {
+    margin: 18px 0 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.6rem, 5vw, 4.8rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .landing-end__faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .landing-end__faq details {
+    padding: 18px 18px 16px;
+    border: 1px solid rgba(16, 16, 16, 0.14);
+    background: rgba(16, 16, 16, 0.04);
+  }
+
+  .landing-end__faq summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .landing-end__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .landing-end__faq details p {
+    margin: 14px 0 0;
+    line-height: 1.7;
+    color: rgba(16, 16, 16, 0.76);
+  }
+
+  .landing-end__footer {
+    padding: clamp(28px, 3.2vw, 40px);
+  }
+
+  .landing-end__footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(180px, 1fr));
+    gap: 28px;
+  }
+
+  .landing-end__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .landing-end__brandmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.4rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .landing-end__footer p,
+  .landing-end__footer a {
+    margin: 0;
+    color: rgba(16, 16, 16, 0.78);
+    text-decoration: none;
+    line-height: 1.7;
+  }
+
+  .landing-end__footer a:hover {
+    color: #8b3dff;
+  }
+
+  .landing-end__footer h4 {
+    margin: 0 0 12px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .landing-end__footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .landing-end__footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(16, 16, 16, 0.12);
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: 980px) {
+    .landing-end__hero,
+    .landing-end__faq-grid,
+    .landing-end__footer-grid {
+      grid-template-columns: 1fr;
     }
 
-    .header-container h4 {
-      font-size: 16px;
-      line-height: 20px;
-    }
-
-    .header-right {
-      order: 3;
+    .landing-end__footer-bottom {
       flex-direction: column;
-      align-items: stretch;
-      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .landing-end {
+      padding: 72px 16px 36px;
     }
 
-    .header-second, .header-third{
-      display: none;
+    .landing-end__panel,
+    .landing-end__faq,
+    .landing-end__footer {
+      box-shadow: 8px 8px 0 rgba(139, 61, 255, 0.2);
+    }
+
+    .landing-end__title,
+    .landing-end__faq h2,
+    .landing-end__brandmark {
+      text-wrap: balance;
+    }
+
+    .landing-end__copy {
+      font-size: 16px;
+    }
+
+    .landing-end__actions {
+      flex-direction: column;
     }
   }
 </style>
 
-
-<header id="header-main" class="header-main">
-  <div class="header-container">
-
-          <div class="header-left">
-        <h4><h4>AgÃªncia digital independente</h4></h4>
+<section class="landing-end" aria-labelledby="landing-end-title">
+  <div class="landing-end__shell">
+    <div class="landing-end__hero">
+      <div class="landing-end__panel">
+        <span class="landing-end__eyebrow">Próximo passo</span>
+        <h2 id="landing-end-title" class="landing-end__title">Quer ver os pacotes?</h2>
+        <p class="landing-end__copy">
+          Se fizer sentido para o seu momento, a próxima etapa é simples: você pode ver os pacotes,
+          entender o nível de entrega ideal e escolher como quer começar com a DELUSIONAL.
+        </p>
+        <div class="landing-end__actions">
+          <a class="landing-end__cta" href="contact.html">Quero ver os pacotes</a>
+          <a class="landing-end__cta--secondary" href="contact.html">Prefiro falar com vocês</a>
+        </div>
       </div>
-    
-          <div class="header-second">
-        <h4>Brasil</h4>
+
+      <aside class="landing-end__aside">
+        <span class="landing-end__eyebrow">O que entra</span>
+        <h3>Design, web e automação sem ruído no meio.</h3>
+        <p>
+          Pacotes pensados para quem quer sair do improviso e ir para uma operação mais clara,
+          bonita e escalável.
+        </p>
+        <div class="landing-end__chips">
+          <span>Web design</span>
+          <span>Brand</span>
+          <span>Landing pages</span>
+          <span>IA aplicada</span>
+          <span>Automação</span>
+          <span>Suporte contínuo</span>
+        </div>
+      </aside>
+    </div>
+
+    <section class="landing-end__faq" aria-labelledby="faq-title">
+      <span class="landing-end__faq-title">FAQ</span>
+      <h2 id="faq-title">Perguntas frequentes antes de avançar.</h2>
+      <div class="landing-end__faq-grid">
+        <details>
+          <summary>Vocês trabalham só com projeto fechado?</summary>
+          <p>Não. Podemos estruturar entregas fechadas, sprints ou acompanhamento contínuo, dependendo do estágio da sua empresa.</p>
+        </details>
+        <details>
+          <summary>É possível contratar só automação?</summary>
+          <p>Sim. Se o gargalo principal estiver em operação, atendimento ou aquisição, montamos uma frente focada em automação e IA.</p>
+        </details>
+        <details>
+          <summary>Vocês ajudam com posicionamento e oferta?</summary>
+          <p>Sim. Quando faz sentido, o trabalho começa antes da interface, ajustando narrativa, proposta de valor e estrutura da oferta.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva para começar?</summary>
+          <p>Depois do alinhamento inicial, normalmente conseguimos iniciar rápido com diagnóstico, escopo e primeira rodada de entregas.</p>
+        </details>
+        <details>
+          <summary>Os pacotes são fixos ou personalizáveis?</summary>
+          <p>Eles servem como ponto de partida. A estrutura pode ser adaptada conforme objetivo, urgência e complexidade da operação.</p>
+        </details>
+        <details>
+          <summary>Posso falar com vocês antes de decidir?</summary>
+          <p>Sim. A ideia aqui é justamente facilitar isso: você pode ver os pacotes ou ir direto para uma conversa e entender o melhor caminho.</p>
+        </details>
       </div>
-    
+    </section>
 
-          <div class="header-fourth">
-                            
-          <a href="contact.html" class="cta cta-third" title="Contate">Contate</a>
-              </div>
-    
-  </div>
-</header>
+    <footer class="landing-end__footer">
+      <div class="landing-end__footer-grid">
+        <div class="landing-end__brand">
+          <span class="landing-end__footer-kicker">DELUSIONAL</span>
+          <div class="landing-end__brandmark">Design brutal, execução precisa.</div>
+          <p>Agência digital independente no Brasil para marcas que querem presença forte, sistemas melhores e crescimento com mais clareza.</p>
+        </div>
 
-</section>
-  
-  
-  
-  
-  
-  
-
-
-  
-  
-  
-  
-
-
-<section  class="paragraph paragraph--type--panel-hero paragraph--view-mode--default panel-hero image-bg-1 text-bottom-align text-readability-on bg-bright hero-half-off hero-3_4-off extra-spacing-bottom-off no-space-top has-bg-slider-off text-align-left font_color_opposit big-p-off has-scroll-icon-off"  data-title="Hero" data-type="panel-hero" data-paragraph-id="262">
-  
-
-  <style class="change-color-variable-inside">
-    .panel-hero[data-paragraph-id="262"] .element-logo .inner-stripe,
-    .panel-hero[data-paragraph-id="262"] .element-logo .small-title-top span:first-of-type:after,
-    .panel-hero[data-paragraph-id="262"] .element-logo .small-title-top span:last-of-type:after,
-    .panel-hero[data-paragraph-id="262"] .element-logo .small-title-bottom span:first-of-type:after,
-    .panel-hero[data-paragraph-id="262"] .element-logo .small-title-bottom span:last-of-type:after{
-      background-color: var(--font_color_opposit);
-    }
-  </style>
-
-            <div class="bg-image abs-wrap lazy-load-bg-image" data-lazy-src="/sites/default/files/2026-01/bridge_up-Offground.jpg">
-      </div>
-      
-  <div class="bg-overlay " style="opacity: 0.00;"></div>
-
-  <div class="text-layer">
-    <div class="animation-helper">
-      <div class="row tablet-break">
-
-        <div class="col-7">
-          <div class="inner-text-layer">
-            
-
-            <h3 class="fade-headline">Para dizer de forma simples</h3><p>&nbsp;</p><h1 class="fade-headline">nÃ³s aceleramos empresas para suas melhores versÃµes futuras...</h1>
+        <div>
+          <h4>Contato</h4>
+          <div class="landing-end__footer-list">
+            <a href="mailto:contato@delusional.studio">contato@delusional.studio</a>
+            <a href="contact.html">Abrir contato</a>
+            <a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
-        <div class="col-5 desktop">&nbsp;</div>
-      </div>
-    </div>
-  </div>
 
-  </section>
+        <div>
+          <h4>Especialidades</h4>
+          <div class="landing-end__footer-list">
+            <p>Websites e landing pages</p>
+            <p>Brand e direção visual</p>
+            <p>Automação e IA aplicada</p>
+            <p>Operação digital</p>
+          </div>
+        </div>
 
-
-<section  class="paragraph paragraph--type--panel-custom-who-we-are paragraph--view-mode--default panel-custom-who-we-are version-" data-title="Custom Who We Are" data-type="panel-custom-who-we-are" data-paragraph-id="264">
-  <div class="max-width">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="subtitle">Cultivando</h3>
-      </div>
-    </div>
-    <div class="title-wrap h1">
-      <div class="row justify-center">
-        <span class="word-group" data-offset="-300" data-offset-mobile="-40">
-          <span class="word">Quebradores</span>
-        </span>
-        <span class="word-group" data-offset="300" data-offset-mobile="40">
-          <span class="word">de</span>
-          <span class="word">padrÃµes,</span>
-        </span>
-      </div>
-      <div class="row justify-center">
-        <span class="word-group" data-offset="-250" data-offset-mobile="-35">
-          <span class="word">Construtores</span>
-          <span class="word">de</span>
-        </span>
-        <span class="word-group" data-offset="250" data-offset-mobile="35">
-          <span class="word">marcas,</span>
-        </span>
-      </div>
-      <div class="row justify-center">
-        <span class="word-group" data-offset="200" data-offset-mobile="30">
-          <span class="word">Designers</span>
-          <span class="word">estratÃ©gicos,</span>
-        </span>
-      </div>
-      <div class="row justify-center">
-        <span class="word-group" data-offset="-200" data-offset-mobile="-30">
-          <span class="word">Criadores</span>
-          <span class="word">de</span>
-          <span class="word">interfaces,</span>
-        </span>
-      </div>
-      <div class="row justify-center">
-        <span class="word-group" data-offset="-180" data-offset-mobile="-25">
-          <span class="word">Programadores</span>
-          <span class="word">com</span>
-        </span>
-        <span class="word-group" data-offset="180" data-offset-mobile="25">
-          <span class="word">bom</span>
-          <span class="word">gosto.</span>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-  
-  
-  
-  
-  
-  
-
-<section  class="paragraph paragraph--type--panel-image-text-side-by-side paragraph--view-mode--default panel-image-text-side-by-side default-panel-padding row-reverse no-space-top-off no-space-bottom-off text-center-align extra-spacing-top-off no-column-between-off"  data-title="Image & Text" data-type="panel-image-text-side-by-side" data-paragraph-id="265">
-  
-
-  <div class="max-width">
-    <div class="row">
-      <div class="col-6 image-col fade-in-ele fade-in-delay-1">
-        <div class="image-wrap">
-            <img loading="lazy" src="sites/default/files/2026-01/Web_coding-Offground_0.jpg" width="1540" height="1144" alt="A person coding @ Offground" />
-
-
+        <div>
+          <h4>Navegação</h4>
+          <div class="landing-end__footer-list">
+            <a href="#header-main">Topo</a>
+            <a href="contact.html">Pacotes e contato</a>
+            <a href="contact.html">Começar projeto</a>
+          </div>
         </div>
       </div>
 
-              <div class="col-1 desktop">&nbsp;</div>
-      
-      <div class="col-5 content-col check-for-ul-auto-break fade-in-ele ">
-        <h3>O conhecimento Ã© construÃ­do sobre a experiÃªncia.&nbsp;<br>E nÃ³s temos muita.</h3><p>&nbsp;</p><h3>AlÃ©m da nossa lista de clientes atual, construÃ­mos nosso know-how atravÃ©s de anos de trabalho com empresas lÃ­deres do setor.</h3><p>&nbsp;</p><h3>E com a DELUSIONAL, nosso objetivo Ã© trazer qualidade nÃ­vel Apple Inc. para todos.</h3>
+      <div class="landing-end__footer-bottom">
+        <span>DELUSIONAL STUDIO</span>
+        <span>Brasil</span>
+        <span>Web Design + Automation + AI</span>
       </div>
-    </div>
+    </footer>
   </div>
 </section>
-  
-
-  
-  
-  
 
 
-<section  class="paragraph paragraph--type--panel-text paragraph--view-mode--default panel-text default-panel-padding data-paragraph-id-266 extra-padding big-p-off no-space-top-off no-space-bottom-off"  data-title="Text" data-type="panel-text" data-paragraph-id="266">
-  
-  <div class="text-layer">
-    <div class="max-width">
-      <div class="row">
-        <div class="col-2 desktop">&nbsp;</div>
-        <div class="col-8">
-          <h1>NÃ³s desafiamos vocÃª<br>a nos desafiar.</h1><div class="custom-btn-wrap"><a class="cta btn btn-hyperspace" href="contact.html">Vamos nessa</a></div>
-        </div>
-        <div class="col-2 desktop">&nbsp;</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 </article>
 
@@ -1077,5 +1911,6 @@
 
 <!-- Mirrored from offground.solutions/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Apr 2026 03:54:56 GMT -->
 </html>
+
 
 
